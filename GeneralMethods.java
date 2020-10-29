@@ -16,7 +16,7 @@ public class GeneralMethods
         init();
     }
 
-    Position pos = new Position(n);
+    //Position pos = new Position(n);
 
     protected void init()
     {
@@ -28,7 +28,7 @@ public class GeneralMethods
 
     protected void insertTest(int index)
     {
-        if (pos.begin == index)
+        if (index == 0)
         {
             for (int i = 0; i < n; i++)
             {
@@ -36,11 +36,12 @@ public class GeneralMethods
             }
         }
 
-        else if (pos.mid == index)
+        else if (index == n)
         {
             for (int i = 0; i < n; i++)
             {
-                list.add(pos.mid, new Object());
+                list.add(n, new Object());
+
             }
         }
 
@@ -48,7 +49,7 @@ public class GeneralMethods
         {
             for (int i = 0; i < n; i++)
             {
-                list.add(pos.end, new Object());
+                list.add(index, new Object());
             }
         }
     }
@@ -57,7 +58,7 @@ public class GeneralMethods
     protected void getTest(int index)
     {
         Object object;
-        if (pos.begin == index)
+        if (index == 0)
         {
             for (int i = 0; i < n; i++)
             {
@@ -65,11 +66,11 @@ public class GeneralMethods
             }
         }
 
-        else if (pos.mid == index)
+        else if (index == n)
         {
             for (int i = 0; i < n; i++)
             {
-                object = list.get(pos.mid);
+                object = list.get(n);
             }
         }
 
@@ -77,14 +78,14 @@ public class GeneralMethods
         {
             for (int i = 0; i < n; i++)
             {
-                object = list.get(pos.end);
+                object = list.get(index);
             }
         }
     }
 
     protected void removeTest(int index)
     {
-        if (pos.begin == index)
+        if (index == 0)
         {
             for (int i = 0; i < n; i++)
             {
@@ -92,11 +93,11 @@ public class GeneralMethods
             }
         }
 
-        else if (pos.mid == index)
+        else if (index == n)
         {
             for (int i = 0; i < n; i++)
             {
-                list.remove(pos.mid);
+                list.remove(n);
             }
         }
 
@@ -104,12 +105,12 @@ public class GeneralMethods
         {
             for (int i = 0; i < n; i++)
             {
-                list.remove(pos.end);
+                list.remove(index);
             }
         }
     }
 
-    protected void getTime(int k, int index)
+    protected long getTime(int k, int index)
     {
         Date currentTime = new Date();
 
@@ -123,9 +124,8 @@ public class GeneralMethods
         Date newTime = new Date();
         long difference = newTime.getTime() - currentTime.getTime();
 
-        //return difference;
+        return difference;
 
-        System.out.println("Результат в миллисекундах: " + difference);
     }
 
 
