@@ -3,12 +3,28 @@ package com.company;
 import java.util.Date;
 import java.util.List;
 
+/** Класс для сравнения производительности ArrayList и LinkedList.
+ * @autor Карина Куликова
+ * @version 2.1
+ */
+
 public class GeneralMethods
 {
+    /**
+     * Размерность list и количество тестов
+     */
     private int n;
 
+    /**
+     * List типа Object, который будет тестироваться
+     */
     private List<Object> list;
 
+    /**
+     * Конструктор - создание нового объекта класса GeneralMethods и инициализация list
+     * @param list - объект интерфейса List
+     * @param n - размерность list и количество тестов
+     */
     GeneralMethods(List list, int n)
     {
         this.list = list;
@@ -16,8 +32,9 @@ public class GeneralMethods
         init();
     }
 
-    //Position pos = new Position(n);
-
+    /**
+     * Инициализация list
+     */
     protected void init()
     {
         for (int i = 0; i < n; i++)
@@ -26,6 +43,10 @@ public class GeneralMethods
         }
     }
 
+    /**
+     * Тест на производительность метода add(), в зависимости от позиции индекса(начало, середина или конец)
+     * @param index - позиция
+     */
     protected void insertTest(int index)
     {
         if (index == 0)
@@ -54,7 +75,10 @@ public class GeneralMethods
         }
     }
 
-
+    /**
+     * Тест на производительность метода get(), в зависимости от позиции индекса(начало, середина или конец)
+     * @param index - позиция
+     */
     protected void getTest(int index)
     {
         Object object;
@@ -83,6 +107,10 @@ public class GeneralMethods
         }
     }
 
+    /**
+     * Тест на производительность метода remove(), в зависимости от позиции индекса(начало, середина или конец)
+     * @param index - позиция
+     */
     protected void removeTest(int index)
     {
         if (index == 0)
@@ -110,6 +138,10 @@ public class GeneralMethods
         }
     }
 
+    /**
+     * Тест на производительность метода set(), в зависимости от позиции индекса(начало, середина или конец)
+     * @param index - позиция
+     */
     protected void setTest(int index)
     {
         Object object = new Object();
@@ -138,17 +170,29 @@ public class GeneralMethods
         }
     }
 
+    /**
+     * Тест на производительность метода clear()
+     */
     protected void clearTest()
     {
         list.clear();
     }
 
+    /**
+     * Тест на производительность метода toArray()
+     */
     protected void toArrayTest()
     {
         Object[] object = list.toArray();
     }
 
 
+    /**
+     * Метод, который вызывает определенный метод для теста и возвращает время, затраченное на тест
+     * @param k - номер метода для теста
+     * @param index - позиция, для которой будет проводится тест(начало, середина или конец)
+     * @return возвращается время, затраченное на тест
+     */
     protected long getTime(int k, int index)
     {
         Date currentTime = new Date();
