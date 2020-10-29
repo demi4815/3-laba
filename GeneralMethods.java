@@ -5,16 +5,25 @@ import java.util.List;
 
 public class GeneralMethods
 {
-//    static int n;
-//
-//    GeneralMethods(int n)
-//    {
-//        this.n = n;
-//    }
+    private final int n;
 
-    static int n = 10000;
+    private final List<Object> list;
 
-    static void InsertFirst(List list)
+    GeneralMethods(List list, int n)
+    {
+        this.list = list;
+        this.n = n;
+    }
+
+    protected void init(int N)
+    {
+        for (int i = 0; i < N; i++)
+        {
+            list.add(new Object());
+        }
+    }
+
+    protected void insertFirst()
     {
         for (int i = 0; i < n; i++)
         {
@@ -22,29 +31,46 @@ public class GeneralMethods
         }
     }
 
-    static void InsertInside(List list)
-    {
-        for (int i = 0; i < n; i++) {
-            list.add(new Object());
-        }
 
-        for (int i=0; i < 100; i++){
+    protected void insertInside()
+    {
+        init(n);
+
+        for (int i = 0; i < 100; i++)
+        {
             list.add(n/2, new Object());
         }
-
     }
 
-    static void getTime(List list, int k)
+    protected void getFirst()
+    {
+        init(n);
+
+        for (int i = 0; i < 100; i++)
+        {
+            list.get(0);
+        }
+    }
+
+    protected void getInside()
+    {
+        init(n);
+
+        for (int i = 0; i < 100; i++)
+        {
+            list.get(n/2);
+        }
+    }
+
+    protected void getTime(int k)
     {
         Date currentTime = new Date();
 
-        switch (k)
-        {
-            case 1: InsertFirst(list);
-                 break;
-
-            case 2: InsertInside(list);
-                break;
+        switch (k) {
+            case 1 -> insertFirst();
+            case 2 -> insertInside();
+            case 3 -> getFirst();
+            case 4 -> getInside();
         }
 
         Date newTime = new Date();
