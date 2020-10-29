@@ -5,72 +5,119 @@ import java.util.List;
 
 public class GeneralMethods
 {
-    private final int n;
+    private int n;
 
-    private final List<Object> list;
+    private List<Object> list;
 
     GeneralMethods(List list, int n)
     {
         this.list = list;
         this.n = n;
+        init();
     }
 
-    protected void init(int N)
+    Position pos = new Position(n);
+
+    protected void init()
     {
-        for (int i = 0; i < N; i++)
+        for (int i = 0; i < n; i++)
         {
             list.add(new Object());
         }
     }
 
-    protected void insertFirst()
+    protected void insertTest(int index)
     {
-        for (int i = 0; i < n; i++)
+        if (pos.begin == index)
         {
-            list.add(0, new Object());
+            for (int i = 0; i < n; i++)
+            {
+                list.add(0, new Object());
+            }
+        }
+
+        else if (pos.mid == index)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                list.add(pos.mid, new Object());
+            }
+        }
+
+        else
+        {
+            for (int i = 0; i < n; i++)
+            {
+                list.add(pos.end, new Object());
+            }
         }
     }
 
 
-    protected void insertInside()
+    protected void getTest(int index)
     {
-        init(n);
-
-        for (int i = 0; i < 100; i++)
+        Object object;
+        if (pos.begin == index)
         {
-            list.add(n/2, new Object());
+            for (int i = 0; i < n; i++)
+            {
+                object = list.get(0);
+            }
+        }
+
+        else if (pos.mid == index)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                object = list.get(pos.mid);
+            }
+        }
+
+        else
+        {
+            for (int i = 0; i < n; i++)
+            {
+                object = list.get(pos.end);
+            }
         }
     }
 
-    protected void getFirst()
+    protected void removeTest(int index)
     {
-        init(n);
-
-        for (int i = 0; i < 100; i++)
+        if (pos.begin == index)
         {
-            list.get(0);
+            for (int i = 0; i < n; i++)
+            {
+                list.remove(0);
+            }
+        }
+
+        else if (pos.mid == index)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                list.remove(pos.mid);
+            }
+        }
+
+        else
+        {
+            for (int i = 0; i < n; i++)
+            {
+                list.remove(pos.end);
+            }
         }
     }
 
-    protected void getInside()
-    {
-        init(n);
-
-        for (int i = 0; i < 100; i++)
-        {
-            list.get(n/2);
-        }
-    }
-
-    protected void getTime(int k)
+    protected void getTime(int k, int index)
     {
         Date currentTime = new Date();
 
         switch (k) {
-            case 1 -> insertFirst();
-            case 2 -> insertInside();
-            case 3 -> getFirst();
-            case 4 -> getInside();
+            case 1 -> insertTest(index);
+            case 2 -> getTest(index);
+            case 3 -> removeTest(index);
+
         }
 
         Date newTime = new Date();
