@@ -110,6 +110,45 @@ public class GeneralMethods
         }
     }
 
+    protected void setTest(int index)
+    {
+        Object object = new Object();
+        if (index == 0)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                list.set(0, object);
+            }
+        }
+
+        else if (index == n)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                list.set(n - 1, object);
+            }
+        }
+
+        else
+        {
+            for (int i = 0; i < n; i++)
+            {
+                list.set(index, object);
+            }
+        }
+    }
+
+    protected void clearTest()
+    {
+        list.clear();
+    }
+
+    protected void toArrayTest()
+    {
+        Object[] object = list.toArray();
+    }
+
+
     protected long getTime(int k, int index)
     {
         Date currentTime = new Date();
@@ -118,6 +157,9 @@ public class GeneralMethods
             case 1 -> insertTest(index);
             case 2 -> getTest(index);
             case 3 -> removeTest(index);
+            case 4 -> setTest(index);
+            case 5 -> clearTest();
+            case 6 -> toArrayTest();
 
         }
 

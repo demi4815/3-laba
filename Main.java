@@ -15,12 +15,15 @@ public class Main {
         GeneralMethods testLinked = new GeneralMethods(new LinkedList(), n);
 
         System.out.println("________________________");
-        for(int i = 1; i <= 3; i++)
+        for(int i = 1; i <= 6; i++)
         {
             switch (i) {
                 case 1 -> System.out.println("Для метода add: \n");
                 case 2 -> System.out.println("Для метода get: \n");
                 case 3 -> System.out.println("Для метода remove: \n");
+                case 4 -> System.out.println("Для метода set: \n");
+                case 5 -> System.out.println("Для метода clear: \n");
+                case 6 -> System.out.println("Для метода toArray: \n");
 
             }
 
